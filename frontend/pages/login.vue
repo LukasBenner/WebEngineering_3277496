@@ -36,4 +36,10 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+  h1{
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 30px;
+  }
+</style>
