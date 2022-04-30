@@ -29,6 +29,7 @@ router.post('/register', async (req, res)=>{
     email: req.body.email,
     password: hashedPassword
   });
+  
   try {
     const savedUser = await user.save();
     res.send({userId: savedUser._id});
@@ -42,7 +43,7 @@ router.post('/login', async (req, res) => {
   //Validate input
   const {error} = loginValidation(req.body);
   if(error){
-    return res.status(400).send(error.details[0].message);
+    return res.status(400).send({'message':error.details[0].message});
   }
 
   //Hash the password
@@ -52,12 +53,12 @@ router.post('/login', async (req, res) => {
   //Check for existing user
   const user = await User.findOne({email: req.body.email});
   if(!user){
-    return res.status(400).send('Wrong credentials');
+    return res.status(400).send({'message':'Wrong credentials'});
   }
 
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if(!validPass){
-    return res.status(400).send('Wrong credentials');
+    return res.status(400).send({'message':'Wrong credentials'});
   }
 
   //Create and assign token
@@ -67,9 +68,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', async (req, res) => {
-
   res.status(200).send();
-
 });
 
 module.exports = router;

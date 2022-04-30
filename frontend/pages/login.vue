@@ -13,7 +13,7 @@
 <script>
 import UserAuthForm from '~/components/UserAuthForm.vue'
 export default {
-  name: 'login',
+  name: 'Login',
   components: {
     UserAuthForm,
   },

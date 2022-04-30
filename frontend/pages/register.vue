@@ -12,7 +12,7 @@
 <script>
 import UserAuthForm from '~/components/UserAuthForm.vue'
 export default {
-  name: 'register',
+  name: 'Register',
   components: {
     UserAuthForm,
   },
@@ -31,7 +31,7 @@ export default {
         await this.$router.push('/login');
       }
       else{
-        console.log(await response.json());
+        // const {message} = await response.json();
       }
     },
   },
