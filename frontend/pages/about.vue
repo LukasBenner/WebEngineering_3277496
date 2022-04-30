@@ -1,11 +1,9 @@
 <script>
-
-export default{
-
+export default {
+  name: 'About',
+  middleware: 'auth',
 }
-
 </script>
-
 
 <template>
   <div class="about-page">
@@ -13,6 +11,4 @@ export default{
   </div>
 </template>
 
-
-<style>
-</style>
+<style></style>

@@ -1,13 +1,12 @@
 <template>
   <div>
-    <Header/>
-    <Nuxt/>
+    <Header />
+    <Nuxt />
   </div>
 </template>
 
 <style>
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,7 +15,7 @@
 }
 
 body {
-  background-color: #EEE;
+  background-color: #eee;
 }
 
 a {
@@ -27,8 +26,7 @@ p {
   margin-bottom: 15px;
 }
 
-p:last-of-type{
+p:last-of-type {
   margin-bottom: 0;
 }
-
 </style>

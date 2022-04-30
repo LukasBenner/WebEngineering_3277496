@@ -11,6 +11,11 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  server: {
+    port: 3000, // default: 3000
+    host: 'localhost', // default: localhost,
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -36,18 +41,48 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    proxy: true
+  },
+
+  proxy:{
+    '/api': { target: 'http://localhost:8000', changeOrigin: true }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       lang: 'en',
+    },
+  },
+
+  auth: {
+    strategies: {
+      github: {
+        clientId: 'a865af74405601cfd049',
+        clientSecret: '3f7d5b69ab8e235571919b1869374f575d45c837',
+      },
+      local:{
+        token: {
+          property: 'token',
+          required: true,
+          type: ''
+        },
+        user: {
+          property: 'user',
+          // autoFetch: true
+        },
+        endpoints:{
+          login: { url: '/api/user/login', method: 'post'},
+          logout: { url: '/api/user/logout', method: 'post'},
+          user: { url: '/api/user/info', method: 'get'},
+        }
+      }
     },
   },
 
