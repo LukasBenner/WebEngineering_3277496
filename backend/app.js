@@ -9,10 +9,15 @@ const cors = require('cors');
 
 dotenv.config();
 
-mongoose.connect(
-  'mongodb://localhost:27017/homepage',
-  () => console.log('connected to db!')
-)
+try {
+  mongoose.connect(
+    'mongodb://localhost:27017/homepage',
+    () => console.log('connected to db!')
+  )
+} catch (error) {
+  console.log(error);
+}
+
 
 const corsOptions = {
   origin: '*',

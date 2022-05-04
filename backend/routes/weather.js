@@ -17,19 +17,69 @@ router.get('/geo', (req, res) => {
 })
 
 
-router.get('/weatherData', (req, res) => {
+router.get('/weatherData', async (req, res) => {
   try {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${req.query.lat}&lon=${req.query.lon}&exclude=minutely,alerts&appid=${process.env.OPEN_WEATHER_MAP_TOKEN}&units=metric`
+    let response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${req.query.lat}&lon=${req.query.lon}&exclude=minutely,alerts&lang=de&appid=${process.env.OPEN_WEATHER_MAP_TOKEN}&units=metric`
       )
-      .then((response) => {
-        res.status(200).send(response.data)
-      })
       .catch((err) => res.send(err))
-  } catch (error) {
+
+    let resData = parseResponse(response.data);
+    res.status(200).send(resData);
+
+  } 
+  catch (error) {
     console.error('GG', error)
   }
 })
+
+function parseResponse(json){
+
+  const conditions = new Object();
+  conditions.sunrise = new Intl.DateTimeFormat('de-DE', { timeStyle: "short" }).format(new Date(json.current.sunrise * 1000));
+  conditions.sunset = new Intl.DateTimeFormat('de-DE', { timeStyle: "short" }).format(new Date(json.current.sunset * 1000));
+  conditions.temperature = Math.round(json.current.temp);
+  conditions.temperature_feels_like = Math.round(json.current.feels_like);
+  conditions.icon = `http://openweathermap.org/img/wn/${json.current.weather[0].icon}@2x.png`;
+
+
+  let days = json.daily.slice(1)
+  let dailyForecasts = [];
+
+  for(let index in days) {
+      const day_forecast = days[index];
+      const day = new Object(); 
+      day.icon = `http://openweathermap.org/img/wn/${day_forecast.weather[0].icon}@2x.png`;
+      day.temperature = Math.round(day_forecast.temp.day);
+      day.temperatureMax = Math.round(day_forecast.temp.max);
+      day.temperatureMin = Math.round(day_forecast.temp.min);
+      day.description = day_forecast.weather[0].description;
+      day.id = index;
+      day.day = new Intl.DateTimeFormat('de-DE', { weekday: 'short' }).format(new Date(day_forecast.dt * 1000));
+
+      dailyForecasts.push(day);
+  }
+  conditions.daily = dailyForecasts;
+
+  let hours = json.hourly.slice(1,24);
+  let hourlyForecasts = [];
+
+  for(let index in hours) {
+      const hour_forecast = hours[index];
+      const hour = new Object(); 
+      hour.icon = `http://openweathermap.org/img/wn/${hour_forecast.weather[0].icon}@2x.png`;
+      hour.temperature = Math.round(hour_forecast.temp);
+      hour.feelsLike = Math.round(hour_forecast.feels_like);
+      hour.description = hour_forecast.weather[0].description;
+      hour.id = index;
+      hour.time = new Intl.DateTimeFormat('de-DE', {hour: "2-digit"}).format(new Date(hour_forecast.dt * 1000));
+
+      hourlyForecasts.push(hour);
+  }
+  conditions.hourly = hourlyForecasts;
+
+
+  return conditions;
+}
 
 module.exports = router;

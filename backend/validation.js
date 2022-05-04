@@ -11,7 +11,18 @@ const registerValidation = (body) => {
     password: joi.string().min(6).required()
   });
 
-  return validationSchema.validate(body);
+  let {error} = validationSchema.validate(body);
+  if(error){
+    if(error.details[0].context.key === 'password'){
+      return {error: 'password'}
+    }
+    else if(error.details[0].context.key === 'email'){
+      return {error: 'email'}
+    }
+    else if(error.details[0].context.key === 'name'){
+      return {error: 'name'}
+    }
+  }
 }
 
 
@@ -22,7 +33,14 @@ const loginValidation = (body) => {
     password: joi.string().min(6).required()
   });
 
-  return validationSchema.validate(body);
+  let {error} = validationSchema.validate(body);
+  if(error){
+    if(error.details[0].context.key === 'password')
+      return {error: 'password'}
+    else if(error.details[0].context.key === 'email'){
+      return {error: 'email'}
+    }
+  }
 }
 
 module.exports.registerValidation = registerValidation;

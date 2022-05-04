@@ -4,8 +4,8 @@
 
     <UserAuthForm
       button-text="Hello"
-      :has-name="false"
       :submit-form="loginUser"
+      submit-text="Log in"
     />
   </div>
 </template>
@@ -24,12 +24,17 @@ export default {
           data: {
             email: loginInfo.email,
             password: loginInfo.password
-          }
-        })
-        this.$nuxt.$emit('auth', true);
-        await this.$router.push('/');
+          }})
       } catch (error) {
+        if(error.response.data.error === 'email'){
+          alert("Please provide a valid email");
+        }
+        else if(['credentials','password'].includes(error.response.data.error)){
+          alert("Wrong credentials");
+        }
       }
+      this.$nuxt.$emit('auth', true);
+      await this.$router.push('/');
       
     },
   },

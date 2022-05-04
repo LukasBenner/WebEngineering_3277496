@@ -8,15 +8,15 @@ const jwt = require('jsonwebtoken');
 router.post('/register', async (req, res)=>{
 
   //Validate input
-  const {error} = registerValidation(req.body);
+  const error = registerValidation(req.body);
   if(error){
-    return res.status(400).send({'message':error.details[0].message});
+    return res.status(200).send(error);
   }
 
   //Check for existing user
   const emailExits = await User.findOne({email: req.body.email});
   if(emailExits){
-    return res.status(400).send({'message':'Email already exists.'});
+    return res.status(200).send({'message':'already exists'});
   }
 
   //Hash the password
@@ -41,29 +41,24 @@ router.post('/register', async (req, res)=>{
 
 router.post('/login', async (req, res) => {
   //Validate input
-  const {error} = loginValidation(req.body);
+  const error = loginValidation(req.body);
   if(error){
-    return res.status(400).send({'message':error.details[0].message});
+    return res.status(400).send(error);
   }
-
-  //Hash the password
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
   //Check for existing user
   const user = await User.findOne({email: req.body.email});
   if(!user){
-    return res.status(400).send({'message':'Wrong credentials'});
+    return res.status(400).send({'error':'credentials'});
   }
 
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if(!validPass){
-    return res.status(400).send({'message':'Wrong credentials'});
+    return res.status(400).send({'error':'credentials'});
   }
 
   //Create and assign token
   const token = jwt.sign({id:user._id}, process.env.TOKEN_SECRET);
-  res.header('auth-token', token).send(token);
+  res.header('auth-token', token).send(token).status(200);
 
 });
 

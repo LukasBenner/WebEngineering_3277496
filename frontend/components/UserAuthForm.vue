@@ -1,13 +1,18 @@
 <template>
-  <form @submit.prevent="execute">
-    <input v-if="hasName" v-model="userInfo.name" type="text" placeholder="Name" />
-
-    <input v-model="userInfo.email" type="email" placeholder="Email" />
-
-    <input v-model="userInfo.password" type="password" placeholder="Password" />
-
-    <button type="submit">Sign in</button>
-  </form>
+  <v-form v-model="valid">
+    <v-text-field v-if="isRegister"
+                  v-model="userInfo.name"
+                  label="Name"
+                  :rules="[required('Name'), minLength(3)]"/>
+    <v-text-field v-model="userInfo.email"
+                  label="Email"
+                  :rules="[required('Email')]"/>
+    <v-text-field v-model="userInfo.password"
+                  label="Password"
+                  type="password"
+                  :rules="[required('Password'),minLength(6)]"/>               
+    <v-btn @click="execute" :disabled="!valid">{{submitText}}</v-btn>
+  </v-form>
 </template>
 
 <script>
@@ -15,8 +20,9 @@
 export default {
   name: 'UserAuthForm',
   props: {
-    hasName: Boolean,
-    submitForm: Function,
+    isRegister: {type:Boolean, default: false},
+    submitText: {type:String, required: true},
+    submitForm: {type:Function, required: true},
   },
   data() {
     return {
@@ -27,6 +33,12 @@ export default {
         email: '',
         password: '',
       },
+      required(propertyTye){
+          return v => v && v.length > 0 || `Please input a ${propertyTye}`
+      },
+      minLength(minLength){
+        return v => v && v.length >= minLength || `Must be at least ${minLength} characters.`
+      }
     }
   },
   methods: {
@@ -38,4 +50,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+
+form{
+  width: min(100%, 400px);
+  padding: 1rem;
+  margin: auto;
+}
+
+</style>

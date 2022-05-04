@@ -3,8 +3,9 @@
     <h1>Register</h1>
 
     <UserAuthForm
-      :has-name="true"
+      :is-register="true"
       :submit-form="registerUser"
+      submit-text="Register"
     />
   </div>
 </template>
@@ -28,10 +29,16 @@ export default {
         })
       });
       if(response.status === 200){
-        await this.$router.push('/login');
+        const json = await response.json();
+        if(json.error){
+          alert(json.error);
+        }
+        else{
+          await this.$router.push('/login');
+        }
       }
       else{
-        // const {message} = await response.json();
+        alert("Something wrong with the database!");
       }
     },
   },

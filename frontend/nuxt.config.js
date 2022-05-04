@@ -31,6 +31,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -63,10 +64,6 @@ export default {
 
   auth: {
     strategies: {
-      github: {
-        clientId: 'a865af74405601cfd049',
-        clientSecret: '3f7d5b69ab8e235571919b1869374f575d45c837',
-      },
       local:{
         token: {
           property: 'token',

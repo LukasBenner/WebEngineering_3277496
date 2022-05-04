@@ -15,7 +15,7 @@ router.get('/info', async (req, res)=>{
   //get User info for id
   const user = await User.findOne({_id: id});
   if(!user){
-    return res.status(400).send('No such user');
+    return res.status(400).send({error: 'no user'});
   }
   return res.status(200).send(
   {'user': 
