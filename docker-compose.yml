@@ -1,0 +1,36 @@
+services:
+
+  frontend:
+    image: lukasbenner/homepage-frontend:0.1
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - frontend
+
+  backend:
+    image: lukasbenner/homepage-backend:0.1
+    container_name: backend
+    ports:
+      - "8000:8000"
+    networks:
+      - backend
+      - frontend
+  database:
+    image: mongo
+    container_name: mongodb
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes: 
+      - databasevolume:/data/db
+    restart: unless-stopped
+    networks:
+      - backend
+volumes:
+  databasevolume: {}
+networks:
+  backend:
+    driver: bridge
+  frontend:
+    driver: bridge

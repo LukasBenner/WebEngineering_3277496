@@ -13,7 +13,7 @@ export default {
 
   server: {
     port: 3000, // default: 3000
-    host: 'localhost', // default: localhost,
+    host: '0', // default: localhost,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -51,8 +51,11 @@ export default {
     proxy: true
   },
 
+  // proxy:{
+  //   '/api': { target: 'http://localhost:8000', changeOrigin: true }
+  // },
   proxy:{
-    '/api': { target: 'http://localhost:8000', changeOrigin: true }
+    '/api': { target: 'http://backend:8000', changeOrigin: true }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -87,5 +90,6 @@ export default {
   content: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+  },
 }
