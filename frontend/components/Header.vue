@@ -26,25 +26,18 @@
 </template>
 
 <script>
-export default {
-  name: 'Layout',
-  data () {
-    return {
-      auth: this.$auth.loggedIn
-    }
-  },
-  mounted(){
-    this.$nuxt.$on('auth', auth => {
-      this.auth = auth;
-    })
-  },
-  methods:{
-    logout(){
-      this.$auth.logout();
-      this.auth = false;
+  import { mapState } from 'vuex';
+  export default {
+    name: 'Layout',
+    computed: {
+      ...mapState({auth: state => state.auth.loggedIn})
+    },
+    methods:{
+      logout(){
+        this.$auth.logout();
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">

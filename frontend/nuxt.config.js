@@ -1,3 +1,15 @@
+const proxyConfig = () => {
+  if (process.env.DEPLOY_ENV === 'dev') {
+    return {
+      '/api': { target: 'http://localhost:8000', changeOrigin: true }
+    }
+  } else {
+    return {
+      '/api': { target: 'http://backend:8000', changeOrigin: true }
+    }
+  }
+}
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -13,7 +25,7 @@ export default {
 
   server: {
     port: 3000, // default: 3000
-    host: '0', // default: localhost,
+    host: 'localhost', // default: localhost,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -51,12 +63,7 @@ export default {
     proxy: true
   },
 
-  // proxy:{
-  //   '/api': { target: 'http://localhost:8000', changeOrigin: true }
-  // },
-  proxy:{
-    '/api': { target: 'http://backend:8000', changeOrigin: true }
-  },
+  proxy: proxyConfig(),
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

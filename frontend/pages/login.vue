@@ -24,17 +24,19 @@ export default {
           data: {
             email: loginInfo.email,
             password: loginInfo.password
-          }})
-      } catch (error) {
+          }
+        })
+        await this.$router.push('/');
+        this.$store.dispatch('snackbar/setSnackbar', {color: 'green', text: 'Thanks for loggin in.', timeout: 2000});
+      } 
+      catch (error) {
         if(error.response.data.error === 'email'){
-          alert("Please provide a valid email");
+          this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: 'There was an issue signing in.  Please try again.'});
         }
         else if(['credentials','password'].includes(error.response.data.error)){
-          alert("Wrong credentials");
+          this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: 'Wrong credentials!'})
         }
       }
-      this.$nuxt.$emit('auth', true);
-      await this.$router.push('/');
       
     },
   },

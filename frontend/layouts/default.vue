@@ -1,11 +1,14 @@
 <template>
   <v-app>
     <Header />
-    <Nuxt />
+    <v-main>
+      <Nuxt />
+      <TheSnackbar />
+    </v-main>
   </v-app>
 </template>
 
-<style>
+<style lang="scss">
 * {
   margin: 0;
   padding: 0;

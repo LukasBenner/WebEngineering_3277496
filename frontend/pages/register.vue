@@ -30,11 +30,14 @@ export default {
       });
       if(response.status === 200){
         const json = await response.json();
-        if(json.error){
-          alert(json.error);
+        console.log(json);
+        if(json.message){
+          alert(json.message);
         }
         else{
           await this.$router.push('/login');
+          this.$store.dispatch('snackbar/setSnackbar',
+          {color: 'green', text: 'Successfully created a user account.', timeout: 2000});
         }
       }
       else{

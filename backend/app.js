@@ -11,7 +11,7 @@ dotenv.config();
 
 try {
   mongoose.connect(
-    'mongodb://mongodb:27017/homepage',
+    `mongodb://${process.env.DATABASE}:27017/homepage`,
     () => console.log('connected to db!')
   )
 } catch (error) {

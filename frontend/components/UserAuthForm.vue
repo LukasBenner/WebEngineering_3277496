@@ -10,8 +10,12 @@
     <v-text-field v-model="userInfo.password"
                   label="Password"
                   type="password"
-                  :rules="[required('Password'),minLength(6)]"/>               
-    <v-btn @click="execute" :disabled="!valid">{{submitText}}</v-btn>
+                  :rules="[required('Password'),minLength(6)]"/>       
+    <v-text-field v-if="isRegister"
+                  label="Repeat Password"
+                  type="password"
+                  :rules="[required('Password'), minLength(6), matchesPassword(userInfo)]"/>        
+    <v-btn type="submit" @click="execute" :disabled="!valid">{{submitText}}</v-btn>
   </v-form>
 </template>
 
@@ -38,11 +42,15 @@ export default {
       },
       minLength(minLength){
         return v => v && v.length >= minLength || `Must be at least ${minLength} characters.`
+      },
+      matchesPassword(userInfo){
+        return v => v && v === userInfo.password || 'Must match the password.'
       }
     }
   },
   methods: {
-    execute() {
+    execute(e) {
+      e.preventDefault();
       if(this.submitForm)
         this.submitForm(this.userInfo)
     },
