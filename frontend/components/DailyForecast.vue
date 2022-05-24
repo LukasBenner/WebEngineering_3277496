@@ -1,14 +1,18 @@
 <template>
   <div class="item">
     <div>
-      {{ day }}
+      {{ forecast.day }}
     </div>
-    <img class="icon" :src="icon"/>
-    <div class="temperature"> 
-      {{ temp }} °C
-    </div>
-    <div class="description">
-      <p>{{description}}</p>
+    <img class="icon" :src="forecast.icon"/>
+    <div class="temperatures"> 
+      <div class="temp">
+        <label for="min">Min:</label>
+        <p id="min">{{ forecast.temperatureMin }} °C</p>
+      </div>
+      <div class="temp">
+        <label for="max">Max:</label>
+        <p id="max">{{ forecast.temperatureMax }} °C</p>
+      </div>
     </div>
   </div>
 </template>
@@ -17,10 +21,7 @@
 export default {
   name:'DailyForecast',
   props:{
-    day: {type: String, required: true},
-    temp: {type: Number, required: true},
-    icon: {type: String, require: true},
-    description: {type: String}
+    forecast: {type: Object, required: true},
   }
 }
 </script>
@@ -39,8 +40,21 @@ export default {
   width: 75px;
   height: auto;
 }
-.temperature {
+.temperatures {
   font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.temp{
+  margin: 0;
+  display: flex;
+
+  label{
+    margin-right: 0.5rem;
+  }
+
 }
 
 </style>

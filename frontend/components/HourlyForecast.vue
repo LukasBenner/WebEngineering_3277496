@@ -1,11 +1,11 @@
 <template>
   <div class="item">
     <div>
-      {{ time }}
+      {{ forecast.time }}
     </div>
-    <img class="icon" :src="icon"/>
+    <img class="icon" :src="forecast.icon"/>
     <div class="temperature"> 
-      {{ temp }} °C
+      {{ forecast.temperature }} °C
     </div>
   </div>
 </template>
@@ -14,10 +14,7 @@
 export default {
   name: 'HourlyForecast',
   props:{
-    time: {type: String, required: true},
-    temp: {type: Number, required: true},
-    icon: {type: String, require: true},
-    description: {type: String}
+    forecast: {type: Object, required: true},
   }
 }
 </script>

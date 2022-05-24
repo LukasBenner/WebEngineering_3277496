@@ -24,8 +24,8 @@ export default {
   },
 
   server: {
-    port: 3000, // default: 3000
-    host: 'localhost', // default: localhost,
+    port: process.env.NUXT_PORT || 3000, // default: 3000
+    host: process.env.NUXT_HOST || 'localhost', // default: localhost,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

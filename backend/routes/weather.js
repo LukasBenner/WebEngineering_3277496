@@ -36,12 +36,14 @@ router.get('/weatherData', async (req, res) => {
 function parseResponse(json){
 
   const conditions = new Object();
-  conditions.sunrise = new Intl.DateTimeFormat('de-DE', { timeStyle: "short" }).format(new Date(json.current.sunrise * 1000));
-  conditions.sunset = new Intl.DateTimeFormat('de-DE', { timeStyle: "short" }).format(new Date(json.current.sunset * 1000));
-  conditions.temperature = Math.round(json.current.temp);
-  conditions.temperature_feels_like = Math.round(json.current.feels_like);
-  conditions.icon = `http://openweathermap.org/img/wn/${json.current.weather[0].icon}@2x.png`;
+  const current = new Object();
+  current.sunrise = new Intl.DateTimeFormat('de-DE', { timeStyle: "short" }).format(new Date(json.current.sunrise * 1000));
+  current.sunset = new Intl.DateTimeFormat('de-DE', { timeStyle: "short" }).format(new Date(json.current.sunset * 1000));
+  current.temperature = Math.round(json.current.temp);
+  current.temperature_feels_like = Math.round(json.current.feels_like);
+  current.icon = `http://openweathermap.org/img/wn/${json.current.weather[0].icon}@2x.png`;
 
+  conditions.current = current;
 
   let days = json.daily.slice(1)
   let dailyForecasts = [];

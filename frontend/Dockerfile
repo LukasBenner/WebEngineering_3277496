@@ -14,9 +14,6 @@ RUN npm install
 
 COPY . /usr/src/nuxt-app/
 
-ENV NUXT_HOST=0
-ENV NUXT_PORT=3000
-
 RUN npm run build
 
 EXPOSE 3000

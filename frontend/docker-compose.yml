@@ -1,6 +1,0 @@
-services:
-  frontend:
-    image: lukasbenner/homepage-frontend:0.1
-    container_name: frontend
-    ports:
-      - "3000:3000"

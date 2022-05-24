@@ -32,7 +32,10 @@ export default {
         const json = await response.json();
         console.log(json);
         if(json.message){
-          alert(json.message);
+          if(json.message === 'already exists'){
+            this.$store.dispatch('snackbar/setSnackbar',
+            {color: 'red', text: 'User already exists.'});
+          }
         }
         else{
           await this.$router.push('/login');

@@ -3,6 +3,10 @@ services:
   frontend:
     image: lukasbenner/homepage-frontend:0.1
     container_name: frontend
+    environment:
+      - DEPLOY_ENV=production
+      - NUXT_HOST=0
+      - NUXT_PORT=3000
     ports:
       - "3000:3000"
     networks:
@@ -11,6 +15,8 @@ services:
   backend:
     image: lukasbenner/homepage-backend:0.1
     container_name: backend
+    environment:
+      - DATABASE=mongodb
     ports:
       - "8000:8000"
     networks:

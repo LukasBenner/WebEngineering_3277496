@@ -6,13 +6,15 @@
       :value="snackbar.showing"
       :timeout="snackbar.timeout"
       :color="snackbar.color"
-      :style="`bottom: 8px`"
+      :style="`bottom: 8px; display:flex`"
     >
-      {{snackbar.text}}
 
-      <v-btn text @click="removeSnackbar()">
-        Close
-      </v-btn>
+      <div class="content">
+        {{snackbar.text}}
+        <v-btn text @click="removeSnackbar()">
+          Close
+        </v-btn>
+      </div>
     </v-snackbar>
   </div>
 </template>
@@ -33,5 +35,9 @@
 </script>
 
 <style lang="scss" scoped>
-
+.content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 </style>
