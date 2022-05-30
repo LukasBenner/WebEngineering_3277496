@@ -1,42 +1,45 @@
 <template>
-  <div class="container">
     <div class="widget">
-      <div v-if="currentWeather" class="current">
-        <img class="icon" :src="currentWeather.icon"/>
+      <div v-if="data.currentWeather" class="current">
+        <img class="icon" :src="data.currentWeather.icon"/>
+        <div class="location">
+          <label for="cityName">
+            <img src="icons/pin.png" id="pin" class="icon">
+          </label>
+          <p id="cityName">{{data.cityName}}</p>
+        </div>
         <div class="real_temp">
-          {{ currentWeather.temperature }} °C
+          {{ data.currentWeather.temperature }} °C
         </div>
         <div class="suntimes">
           <div class="suntime">
             <label for="sunrise">
               <img class="icon" id="sun" src="icons/sunrise.png"/>
             </label>
-            <p id="sunrise">{{currentWeather.sunrise}}</p>
+            <p id="sunrise">{{data.currentWeather.sunrise}}</p>
           </div>
           <div class="suntime">
             <label for="sunset">
                <img class="icon" id="sun" src="icons/sunset.png"/>
             </label>
-            <p id="sunset">{{currentWeather.sunset}}</p>
+            <p id="sunset">{{data.currentWeather.sunset}}</p>
           </div>
         </div>
       </div>
       <div class="dailyForecasts">
-        <div v-for="forecast in dailyForecasts" :key="forecast.id" class="daily">
+        <div v-for="forecast in data.dailyForecasts" :key="forecast.id" class="daily">
           <daily-forecast :forecast="forecast"/>
         </div>
       </div>
       <div class="hourlyForecasts">
-        <div v-for="forecast in hourlyForecasts" :key="forecast.id" class="hourly">
+        <div v-for="forecast in data.hourlyForecasts" :key="forecast.id" class="hourly">
           <hourly-forecast :forecast="forecast"/>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
-import { mapState } from "vuex"
 import DailyForecast from './DailyForecast.vue'
 import HourlyForecast from './HourlyForecast.vue'
 
@@ -46,16 +49,9 @@ export default {
     HourlyForecast,
     DailyForecast
   },
-  computed:{
-      ...mapState({dailyForecasts : state => state.weather.dailyForecasts}),
-      ...mapState({hourlyForecasts: state => state.weather.hourlyForecasts}),
-      ...mapState({currentWeather: state => state.weather.currentWeather })
+  props:{
+    data: Object
   },
-  mounted(){
-    this.$store.dispatch('weather/getWeather', {lat: 48.7784485, lon: 9.1800132})
-  },
-  methods:{
-  }
 }
 </script>
 
@@ -75,7 +71,6 @@ export default {
   overflow-x: auto;
   padding: 0.5rem;
   border-top: 1px solid;
-
   .hourly{
     flex: 0 0 auto;
   }
@@ -105,6 +100,22 @@ export default {
     grid-row:1;
     justify-self: center;
   }
+  .location{
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #pin{
+      height: 1em;
+    }
+
+  }
   .suntimes{
     grid-column: 2;
     grid-row:2;
@@ -119,12 +130,10 @@ export default {
       margin-left: 1rem
     }
 
-  }
-
-  #sun{
+    #sun{
     height: 2em;
+    }
   }
-
 }
 
 </style>
