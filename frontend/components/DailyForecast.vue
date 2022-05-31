@@ -3,8 +3,8 @@
     <div>
       {{ forecast.day }}
     </div>
-    <img class="icon" :src="forecast.icon"/>
-    <div class="temperatures"> 
+    <img class="icon" :src="forecast.icon" />
+    <div class="temperatures">
       <div class="temp">
         <label for="min">Min:</label>
         <p id="min">{{ forecast.temperatureMin }} °C</p>
@@ -19,10 +19,10 @@
 
 <script>
 export default {
-  name:'DailyForecast',
-  props:{
-    forecast: {type: Object, required: true},
-  }
+  name: 'DailyForecast',
+  props: {
+    forecast: { type: Object, required: true },
+  },
 }
 </script>
 
@@ -47,14 +47,12 @@ export default {
   align-items: flex-start;
 }
 
-.temp{
+.temp {
   margin: 0;
   display: flex;
 
-  label{
+  label {
     margin-right: 0.5rem;
   }
-
 }
-
 </style>

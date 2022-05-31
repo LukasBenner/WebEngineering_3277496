@@ -2,9 +2,11 @@
   <v-app>
     <Header />
     <v-main>
-      <Nuxt />
-      <TheSnackbar />
+      <v-container fluid>
+        <Nuxt />
+      </v-container>
     </v-main>
+    <TheSnackbar />
   </v-app>
 </template>
 

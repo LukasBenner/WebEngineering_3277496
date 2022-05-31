@@ -17,34 +17,37 @@ export default {
   components: {
     UserAuthForm,
   },
-   methods: {
+  methods: {
     async registerUser(registerInfo) {
       const response = await fetch('/api/user/register', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: registerInfo.name,
           email: registerInfo.email,
-          password: registerInfo.password
-        })
-      });
-      if(response.status === 200){
-        const json = await response.json();
-        console.log(json);
-        if(json.message){
-          if(json.message === 'already exists'){
-            this.$store.dispatch('snackbar/setSnackbar',
-            {color: 'red', text: 'User already exists.'});
+          password: registerInfo.password,
+        }),
+      })
+      if (response.status === 200) {
+        const json = await response.json()
+        console.log(json)
+        if (json.message) {
+          if (json.message === 'already exists') {
+            this.$store.dispatch('snackbar/setSnackbar', {
+              color: 'red',
+              text: 'User already exists.',
+            })
           }
+        } else {
+          await this.$router.push('/login')
+          this.$store.dispatch('snackbar/setSnackbar', {
+            color: 'green',
+            text: 'Successfully created a user account.',
+            timeout: 2000,
+          })
         }
-        else{
-          await this.$router.push('/login');
-          this.$store.dispatch('snackbar/setSnackbar',
-          {color: 'green', text: 'Successfully created a user account.', timeout: 2000});
-        }
-      }
-      else{
-        alert("Something wrong with the database!");
+      } else {
+        alert('Something wrong with the database!')
       }
     },
   },
@@ -52,9 +55,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  h1{
-    font-size: 28px;
-    font-weight: 900;
-    margin-bottom: 30px;
-  }
+h1 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
 </style>

@@ -1,11 +1,11 @@
 const proxyConfig = () => {
   if (process.env.DEPLOY_ENV === 'dev') {
     return {
-      '/api': { target: 'http://localhost:8000', changeOrigin: true }
+      '/api': { target: 'http://localhost:8000', changeOrigin: true },
     }
   } else {
     return {
-      '/api': { target: 'http://backend:8000', changeOrigin: true }
+      '/api': { target: 'http://backend:8000', changeOrigin: true },
     }
   }
 }
@@ -60,7 +60,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    proxy: true
+    proxy: true,
   },
 
   proxy: proxyConfig(),
@@ -74,22 +74,22 @@ export default {
 
   auth: {
     strategies: {
-      local:{
+      local: {
         token: {
           property: 'token',
           required: true,
-          type: ''
+          type: '',
         },
         user: {
           property: 'user',
           // autoFetch: true
         },
-        endpoints:{
-          login: { url: '/api/user/login', method: 'post'},
-          logout: { url: '/api/user/logout', method: 'post'},
-          user: { url: '/api/user/info', method: 'get'},
-        }
-      }
+        endpoints: {
+          login: { url: '/api/user/login', method: 'post' },
+          logout: { url: '/api/user/logout', method: 'post' },
+          user: { url: '/api/user/info', method: 'get' },
+        },
+      },
     },
   },
 
@@ -97,6 +97,5 @@ export default {
   content: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  },
+  build: {},
 }

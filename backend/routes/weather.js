@@ -2,13 +2,15 @@ const router = require('express').Router();
 const axios = require('axios')
 
 router.get('/geo', (req, res) => {
+  let limit = 5;
   try {
     axios
       .get(
-        `http://api.openweathermap.org/geo/1.0/direct?appid=${process.env.OPEN_WEATHER_MAP_TOKEN}&q=${req.query.q}`
+        `http://api.openweathermap.org/geo/1.0/direct?appid=${process.env.OPEN_WEATHER_MAP_TOKEN}&limit=${limit}&q=${req.query.q}`
       )
       .then((response) => {
-        res.status(200).send(response.data[0])
+        console.log(response);
+        res.status(200).send(response.data);
       })
       .catch((err) => res.send(err))
   } catch (error) {

@@ -18,26 +18,26 @@
         </span>
       </div>
       <div v-else id="auth">
-          <nuxt-link to="/login">Login</nuxt-link>
-          <nuxt-link to="/register">Register</nuxt-link>
+        <nuxt-link to="/login">Login</nuxt-link>
+        <nuxt-link to="/register">Register</nuxt-link>
       </div>
     </nav>
   </header>
 </template>
 
 <script>
-  import { mapState } from 'vuex';
-  export default {
-    name: 'Layout',
-    computed: {
-      ...mapState({auth: state => state.auth.loggedIn})
+import { mapState } from 'vuex'
+export default {
+  name: 'Layout',
+  computed: {
+    ...mapState({ auth: (state) => state.auth.loggedIn }),
+  },
+  methods: {
+    logout() {
+      this.$auth.logout()
     },
-    methods:{
-      logout(){
-        this.$auth.logout();
-      }
-    }
-  }
+  },
+}
 </script>
 
 <style lang="scss">
@@ -75,20 +75,18 @@ nav {
     display: flex;
   }
 
-  #auth{
+  #auth {
     display: flex;
     flex-direction: row;
   }
-
 }
 
 @media only screen and (max-width: 600px) {
-  header{
+  header {
     flex-direction: column;
   }
-  nav{
+  nav {
     flex-direction: column;
   }
 }
-
 </style>

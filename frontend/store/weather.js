@@ -1,28 +1,50 @@
 export const state = () => ({
-  widgets: []
+  widgets: [],
 })
 
 export const actions = {
-  async addWidget(context, {cityName}){
-    const location = await this.$axios.get(`/api/weather/geo?q=${cityName}`);
-    const weather = await this.$axios.get(`/api/weather/weatherData?lat=${location.data.lat}&lon=${location.data.lon}`);
-    context.commit('addWidget', {loc: location.data, data:weather.data});
-  }
+  async addWidget(context, { location }) {
+    const weather = await this.$axios.get(
+      `/api/weather/weatherData?lat=${location.lat}&lon=${location.lon}`
+    )
+    context.commit('ADD_WIDGET', { loc: location, data: weather.data })
+  },
+  deleteWidget(context, { widget }) {
+    context.commit('DELETE_WIDGET', widget)
+  },
+  async reloadWidget(context, { widget }) {
+    const weather = await this.$axios.get(
+      `/api/weather/weatherData?lat=${widget.lat}&lon=${widget.lon}`
+    )
+    context.commit('RELOAD_WIDGET', { widget, weather: weather.data })
+  },
 }
 
 export const mutations = {
-  addWidget(state, {loc, data}){
-    const widget = 
-    { 
+  ADD_WIDGET(state, { loc, data }) {
+    const widget = {
       cityName: loc.name,
+      country: loc.country,
+      state: loc.state,
       lat: loc.lat,
       lon: loc.lon,
       dailyForecasts: data.daily,
       hourlyForecasts: data.hourly,
-      currentWeather: data.current
+      currentWeather: data.current,
     }
-    state.widgets.push(widget);
-    console.log(widget);
-    
-  }
+    state.widgets.push(widget)
+  },
+  DELETE_WIDGET(state, widget) {
+    state.widgets = state.widgets.filter(
+      (e) => e.lat !== widget.lat && e.lon !== widget.lon
+    )
+  },
+  RELOAD_WIDGET(state, { widget, weather }) {
+    widget.dailyForecasts = weather.daily
+    widget.hourlyForecasts = weather.hourly
+    widget.currentWeather = weather.current
+    state.widgets = state.widgets.map(function (item) {
+      return item.lat === widget.lat && item.lon === widget.lon ? widget : item
+    })
+  },
 }
