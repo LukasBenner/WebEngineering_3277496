@@ -1,19 +1,21 @@
 <template>
-  <div>
-    <h1>Register</h1>
+  <div class="container">
+    <h1>Sign Up</h1>
 
-    <UserAuthForm
-      :is-register="true"
-      :submit-form="registerUser"
-      submit-text="Register"
-    />
+    <div class="content">
+      <UserAuthForm
+        :is-register="true"
+        :submit-form="registerUser"
+        submit-text="Sign Up"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import UserAuthForm from '~/components/UserAuthForm.vue'
 export default {
-  name: 'Register',
+  name: 'SignUp',
   components: {
     UserAuthForm,
   },
@@ -55,9 +57,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content{
+  width: min(400px, 100%)
+}
+
+
 h1 {
   font-size: 28px;
   font-weight: 900;
+  margin: auto;
   margin-bottom: 30px;
 }
 </style>

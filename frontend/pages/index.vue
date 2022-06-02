@@ -1,17 +1,19 @@
 <template>
   <div class="home-page">
-    <h1>Latest Post</h1>
+    <h1>Latest Posts</h1>
     <div class="articles">
-      <div v-for="article of articles" :key="article.title" class="article">
-        <nuxt-link :to="{ name: 'blog-slug', params: { slug: article.slug } }">
-          <div class="article-inner">
-            <div class="detail">
-              <h3>{{ article.title }}</h3>
-              <p>{{ article.description }}</p>
-            </div>
-          </div>
-        </nuxt-link>
-      </div>
+      <v-card v-for="article of articles" :key="article.title" class="article"
+        elevation="3"
+        shaped
+        :to="{ name: 'blog-slug', params: { slug: article.slug } }"
+      >
+        <v-card-title>
+          {{ article.title }}
+        </v-card-title>
+        <v-card-text>
+          <p>{{ article.description }}</p>
+        </v-card-text>
+      </v-card>
     </div>
   </div>
 </template>
@@ -22,6 +24,7 @@ export default {
     const articles = await $content('blog', params.slug)
       .only(['title', 'description', 'slug'])
       .sortBy('createdAt', 'asc')
+      .limit(3)
       .fetch()
 
     return { articles }
@@ -32,6 +35,9 @@ export default {
 <style lang="scss">
 .home-page {
   padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h2 {
     margin-bottom: 30px;
@@ -40,35 +46,10 @@ export default {
   .articles {
     margin: 0 auto;
     max-width: 800px;
+    width: min(600px, 100%);
   }
   .article {
     margin-bottom: 15px;
-  }
-  .article-inner {
-    padding: 15px;
-    background: #fff;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    display: flex;
-  }
-  .article-inner img {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-  }
-  .article-inner .detail {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  h3 {
-    color: #212121;
-    font-size: 24px;
-    text-decoration: none;
-  }
-  p {
-    color: #888;
-    font-size: 18px;
-    text-decoration: none;
   }
 }
 </style>

@@ -1,14 +1,33 @@
 <template>
-  <v-app>
-    <Header />
-    <v-main>
-      <v-container fluid>
-        <Nuxt />
+  <v-app id="inspire">
+    <Header></Header>
+    <v-main class="grey lighten-3">
+      <v-container>
+        <v-row>
+          <v-col
+            cols="12"
+            sm="12"
+          >
+            <v-sheet
+              min-height="70vh"
+              rounded="lg"
+            >
+              <Nuxt />
+            </v-sheet>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
     <TheSnackbar />
   </v-app>
 </template>
+
+<script>
+import Header from '~/components/Header.vue';
+  export default {
+    components: { Header }
+}
+</script>
 
 <style lang="scss">
 * {

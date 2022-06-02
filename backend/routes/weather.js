@@ -6,10 +6,9 @@ router.get('/geo', (req, res) => {
   try {
     axios
       .get(
-        `http://api.openweathermap.org/geo/1.0/direct?appid=${process.env.OPEN_WEATHER_MAP_TOKEN}&limit=${limit}&q=${req.query.q}`
+        encodeURI(`http://api.openweathermap.org/geo/1.0/direct?appid=${process.env.OPEN_WEATHER_MAP_TOKEN}&limit=${limit}&q=${req.query.q}`)
       )
       .then((response) => {
-        console.log(response);
         res.status(200).send(response.data);
       })
       .catch((err) => res.send(err))

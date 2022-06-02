@@ -1,12 +1,16 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Login</h1>
 
-    <UserAuthForm
-      button-text="Hello"
-      :submit-form="loginUser"
-      submit-text="Log in"
-    />
+    <div class="content">
+      <UserAuthForm
+        button-text="Hello"
+        :submit-form="loginUser"
+        submit-text="Log in"
+      />
+      <v-btn id="signUp" to="signUp">Sign up</v-btn>
+    </div>
+    
   </div>
 </template>
 
@@ -53,9 +57,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content{
+  width: min(400px, 100%)
+}
+
+#signUp{
+  margin-left: 1rem;
+}
+
 h1 {
   font-size: 28px;
   font-weight: 900;
+  margin: auto;
   margin-bottom: 30px;
 }
 </style>

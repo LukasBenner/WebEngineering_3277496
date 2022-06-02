@@ -1,34 +1,85 @@
 <template>
-  <header>
-    <div class="title">
-      <nuxt-link to="/">
-        <span>My Blog</span>
-      </nuxt-link>
-    </div>
-    <nav>
-      <div id="nav">
-        <nuxt-link to="/">Home</nuxt-link>
-        <nuxt-link to="/about">About</nuxt-link>
-        <nuxt-link to="/weather">Weather</nuxt-link>
-      </div>
-      <div v-if="auth" id="auth">
-        <a href="#" @click="logout">Logout</a>
-        <span>
-          {{ $auth.user.email }}
-        </span>
-      </div>
-      <div v-else id="auth">
-        <nuxt-link to="/login">Login</nuxt-link>
-        <nuxt-link to="/register">Register</nuxt-link>
-      </div>
-    </nav>
-  </header>
+  <div>
+    <v-app-bar
+      app
+      color="white"
+      flat
+    >
+      <v-toolbar-title>Yet another Tech Blog</v-toolbar-title>
+      <v-app-bar-nav-icon
+        @click="drawer = true"
+        class="d-flex d-sm-none"
+      ></v-app-bar-nav-icon>
+      <v-spacer></v-spacer>
+      <v-icon
+        v-if="auth"
+        @click="logout()"
+        color="red"
+        >
+        mdi-login
+      </v-icon>
+      <v-icon
+        v-else
+        @click="$router.push('login')"
+        >
+        mdi-login
+      </v-icon>
+      <template v-slot:extension>
+        <v-tabs
+          align-with-title
+          class="d-none d-sm-flex"
+          color="grey darken-1"
+        >
+          <v-tab v-for="tab of tabs" :key="tab.name" :to="tab.location">
+            <v-icon left>
+              {{tab.icon}}
+            </v-icon>
+            {{ tab.name }}
+          </v-tab>
+        </v-tabs>
+      </template>
+    </v-app-bar>
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group>
+          <v-list-item v-for="tab of tabs" :key="tab.name" :to="tab.location">
+            <v-icon left>{{tab.icon}}</v-icon>
+            <v-list-item-title>{{ tab.name }}</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+  </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 export default {
   name: 'Layout',
+  data() {
+    return{
+      drawer: false,
+      tabs: [
+        {
+          name: "Home",
+          icon: "mdi-home",
+          location: "/"
+        },
+        {
+          name: "Weather",
+          icon: "mdi-weather-sunny",
+          location: "/weather"
+        },
+      ]
+    }
+  },
   computed: {
     ...mapState({ auth: (state) => state.auth.loggedIn }),
   },
@@ -41,52 +92,6 @@ export default {
 </script>
 
 <style lang="scss">
-header {
-  padding: 15px 30px;
-  background-color: #fff;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 
-  .title {
-    color: #212121;
-    font-size: 24px;
-    font-weight: 900;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-}
 
-nav {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  a {
-    display: block;
-    margin: 0 15px;
-    color: green;
-    font-weight: 700;
-  }
-
-  #nav {
-    display: flex;
-  }
-
-  #auth {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  header {
-    flex-direction: column;
-  }
-  nav {
-    flex-direction: column;
-  }
-}
 </style>

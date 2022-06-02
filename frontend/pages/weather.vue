@@ -40,6 +40,8 @@ import WeatherWidget from '../components/WeatherWidget.vue'
 import SearchAutocomplete from '~/components/SearchAutocomplete.vue'
 
 export default {
+  name: 'Weather',
+  middleware: 'auth',
   components: { WeatherWidget, SearchAutocomplete },
   data() {
     return {
@@ -83,6 +85,14 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.weather{
+  padding: 1rem;
+}
+
+.widgets{
+  margin: 1rem;
 }
 
 .searchBar {

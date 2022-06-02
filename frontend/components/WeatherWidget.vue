@@ -3,16 +3,13 @@
     <div v-if="data.currentWeather" class="current">
       <img class="icon" :src="data.currentWeather.icon" />
       <div class="location">
-        <label for="cityName" id="pin">
-          <img src="icons/pin.png" class="icon" />
-        </label>
         <p id="cityName">{{ data.cityName }}</p>
         <p id="cityState">{{ data.country }}, {{ data.state }}</p>
         <div class="controls">
-          <v-icon color="red" x-large @click="deleteWidget()">
+          <v-icon color="red" medium @click="deleteWidget()">
             mdi-close
           </v-icon>
-          <v-icon color="gray" x-large @click="reloadWidget()">
+          <v-icon color="gray" medium @click="reloadWidget()">
             mdi-refresh
           </v-icon>
         </div>
@@ -109,15 +106,16 @@ export default {
 
 .current {
   display: grid;
-  grid-column-gap: 2rem;
+  grid-column-gap: 1rem;
   grid-template-columns: 2;
 
   .real_temp {
     grid-column: 1;
     grid-row: 2;
-    font-size: 3rem;
+    font-size: 2em;
     font-weight: 700;
     justify-self: center;
+    white-space: nowrap;
   }
   .icon {
     grid-row: 1;
@@ -128,32 +126,27 @@ export default {
     grid-row: 1;
     justify-self: center;
     align-self: center;
-    font-size: 30px;
+    font-size:large;
     font-weight: 500;
     display: grid;
     align-items: center;
     width: 100%;
 
-    #pin {
-      justify-self: end;
-
-      img {
-        height: 1em;
-      }
-    }
     #cityName {
       grid-row: 1;
-      grid-column: 2;
+      grid-column: 1;
       margin: 0;
+      justify-self: end;
     }
+    
     #cityState {
-      grid-column: 1 / span 2;
+      grid-column: 1;
       font-size: small;
       justify-self: end;
     }
     .controls {
-      justify-self: end;
-      grid-column: 3;
+      justify-self: center;
+      grid-column: 2;
       grid-row: 1 / span 2;
       display: flex;
       flex-direction: column;
@@ -174,7 +167,7 @@ export default {
     }
 
     #sun {
-      height: 2em;
+      height: 1.5em;
     }
   }
 }
