@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <h1>Latest Posts</h1>
+    <h1>Articles</h1>
     <div class="articles">
       <v-card
         v-for="article of articles"
@@ -27,9 +27,8 @@ export default {
     const articles = await $content('blog', params.slug)
       .only(['title', 'description', 'slug'])
       .sortBy('createdAt', 'asc')
-      .limit(3)
       .fetch()
-
+    console.log(articles);
     return { articles }
   },
 }
@@ -50,6 +49,9 @@ export default {
     margin: 0 auto;
     max-width: 800px;
     width: min(600px, 100%);
+    max-height: 90vh;
+    padding: 1rem;
+    overflow-y: scroll;
   }
   .article {
     margin-bottom: 15px;

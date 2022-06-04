@@ -7,6 +7,7 @@
       :timeout="snackbar.timeout"
       :color="snackbar.color"
       :style="`bottom: 8px; display:flex`"
+      
     >
       <div class="content">
         {{ snackbar.text }}

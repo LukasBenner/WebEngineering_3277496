@@ -143,9 +143,11 @@ export default {
       grid-column: 1;
       font-size: small;
       justify-self: end;
+      text-align: end;
     }
     .controls {
       justify-self: center;
+      align-self: center;
       grid-column: 2;
       grid-row: 1 / span 2;
       display: flex;

@@ -8,7 +8,7 @@
       <v-app-bar-title>Yet another Tech Blog</v-app-bar-title>
       <v-spacer></v-spacer>
       <v-icon v-if="auth" @click="logout()" color="red"> mdi-login </v-icon>
-      <v-icon v-else @click="$router.push('login')"> mdi-login </v-icon>
+      <v-icon v-else @click="$router.push('/login')"> mdi-login </v-icon>
       <template v-slot:extension>
         <v-tabs align-with-title class="d-none d-sm-flex" color="grey darken-1">
           <v-tab v-for="tab of tabs" :key="tab.name" :to="tab.location">
@@ -20,7 +20,7 @@
         </v-tabs>
       </template>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer app fixed v-model="drawer" temporary>
       <v-list nav dense>
         <v-list-item-group>
           <v-list-item v-for="tab of tabs" :key="tab.name" :to="tab.location">
@@ -45,6 +45,11 @@ export default {
           name: 'Home',
           icon: 'mdi-home',
           location: '/',
+        },
+        {
+          name: 'Blogs',
+          icon: 'mdi-book',
+          location: '/blogs',
         },
         {
           name: 'Weather',

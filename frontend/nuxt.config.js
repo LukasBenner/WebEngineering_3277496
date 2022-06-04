@@ -1,3 +1,5 @@
+import tailwindTypography from '@tailwindcss/typography';
+
 const proxyConfig = () => {
   if (process.env.DEPLOY_ENV === 'dev') {
     return {
@@ -56,6 +58,7 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     '@nuxtjs/auth-next',
+    '@nuxt/image',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -121,4 +124,9 @@ export default {
       },
     },
   },
+  tailwindcss: {
+    config: {
+        plugins: [tailwindTypography],
+    }
+},
 }
