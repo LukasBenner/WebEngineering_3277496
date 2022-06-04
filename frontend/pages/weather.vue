@@ -87,11 +87,11 @@ export default {
   justify-content: center;
 }
 
-.weather{
+.weather {
   padding: 1rem;
 }
 
-.widgets{
+.widgets {
   margin: 1rem;
 }
 

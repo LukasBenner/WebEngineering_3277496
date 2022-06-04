@@ -2,7 +2,10 @@
   <div class="home-page">
     <h1>Latest Posts</h1>
     <div class="articles">
-      <v-card v-for="article of articles" :key="article.title" class="article"
+      <v-card
+        v-for="article of articles"
+        :key="article.title"
+        class="article"
         elevation="3"
         shaped
         :to="{ name: 'blog-slug', params: { slug: article.slug } }"

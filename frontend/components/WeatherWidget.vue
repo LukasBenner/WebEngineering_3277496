@@ -126,7 +126,7 @@ export default {
     grid-row: 1;
     justify-self: center;
     align-self: center;
-    font-size:large;
+    font-size: large;
     font-weight: 500;
     display: grid;
     align-items: center;
@@ -138,7 +138,7 @@ export default {
       margin: 0;
       justify-self: end;
     }
-    
+
     #cityState {
       grid-column: 1;
       font-size: small;

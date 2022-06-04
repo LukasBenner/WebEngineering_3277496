@@ -1,4 +1,4 @@
-FROM node:current-alpine
+FROM node:16.14.2-alpine
 
 RUN mkdir -p /usr/src/backend-api && chown -R node:node /usr/src/backend-api
 WORKDIR /usr/src/backend-api

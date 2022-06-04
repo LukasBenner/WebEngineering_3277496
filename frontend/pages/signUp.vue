@@ -57,16 +57,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.content{
-  width: min(400px, 100%)
+.content {
+  width: min(400px, 100%);
 }
-
 
 h1 {
   font-size: 28px;

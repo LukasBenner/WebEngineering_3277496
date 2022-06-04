@@ -10,7 +10,6 @@
       />
       <v-btn id="signUp" to="signUp">Sign up</v-btn>
     </div>
-    
   </div>
 </template>
 
@@ -57,18 +56,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.container{
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.content{
-  width: min(400px, 100%)
+.content {
+  width: min(400px, 100%);
 }
 
-#signUp{
+#signUp {
   margin-left: 1rem;
 }
 
