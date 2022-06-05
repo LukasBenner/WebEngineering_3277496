@@ -4,7 +4,7 @@
     <v-main class="grey lighten-3">
       <v-container>
         <v-row>
-          <v-col cols="12" sm="3">
+          <v-col cols="12" md="3">
             <v-sheet rounded="lg">
               <v-list>
                 <v-subheader>Table of Content</v-subheader>
@@ -22,7 +22,7 @@
               </v-list>
             </v-sheet>
           </v-col>
-          <v-col>
+          <v-col cols="12" md="9">
             <v-sheet min-height="70vh" rounded="lg">
               <Nuxt />
             </v-sheet>

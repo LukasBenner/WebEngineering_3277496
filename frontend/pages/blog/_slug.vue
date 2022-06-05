@@ -1,6 +1,6 @@
 <template>
   <article>
-    <nuxt-content class="mt-4 prose max-w-none title" :document="article" />
+    <nuxt-content class="mt-4 prose max-w-none" :document="article" />
   </article>
 </template>
 
@@ -24,11 +24,5 @@ article {
   padding: 50px 30px;
   max-width: 800px;
 }
-h1 {
-  font-size: 28px;
-  font-weight: 900;
-  margin-bottom: 30px;
-}
-
 
 </style>
