@@ -10,15 +10,17 @@ Matrikelnummer: 3277496
 
 ## Welche Elemente wurden implementiert?
 
-1. **Vue.js** wurde in Form von Nuxt.js verwendet.
+1. **Vue.js** wurde in Form von Nuxt.js verwendet. (3 Pkt.)
 
-2. **Wetter Daten** können angezeigt werden
+2. **Wetter Daten** können angezeigt werden (1 Pkt.)
 
-3. Es wurde ein **Nutzersystem** zum Login implementiert
+3. Es wurde ein **Nutzersystem** zum Login implementiert (3 Pkt.)
    
    1. Hierfür wurde ein **Backend** mit Node.js implementiert, dass zu Speicherung der Daten eine **MongoDB** Datenbank nutzt.
 
-4. Die Komponenten kann über **Docker** insalliert werden.
+4. Die Komponenten kann über **Docker** insalliert werden. (1 Pkt.)
+
+Das Flussdiagram befindet sich auch im GitHub Repository.
 
 ## Installationsbeschreibung für lokales Environment
 
@@ -62,13 +64,19 @@ Hier in kurz:
 3. Starte MongoDB
    
    ```bash
-   brew services start mongodb-community@5.0
+   brew services start mongodb-community@5.0`
    ```
 
 Um MongoDB wieder zu stoppen, führe folgends aus:
 
 ```bash
 brew services stop mongodb-community@5.0
+```
+
+Um MongoDB zu deinstalliern:
+
+```bash
+brew remove mongodb-community@5.0
 ```
 
 ### Starten der Anwendung
@@ -80,6 +88,10 @@ brew services stop mongodb-community@5.0
 3. Wenn das Frontend buildet und der Backend ein "connected to db!" ausgiebt, hat alles funktioniert.
 
 4. Gehe auf http://localhost:3000
+
+5. Um Auf die Wetter Seite zu kommen muss man sich einloggen. 😀
+
+6. Einmal bitte also registrieren und einloggen.
 
 ## Installationsbeschreibung mit Docker
 
