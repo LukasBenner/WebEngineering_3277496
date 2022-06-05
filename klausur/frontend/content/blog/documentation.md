@@ -105,23 +105,19 @@ Infos zur Installation sind hier zu finden: [Install Docker Desktop on Mac | Doc
    git clone https://github.com/LukasBenner/WebEngineering_3277496.git
    ```
 
-2. Installation der Dependencies:
-   
-   Installiere die Dependencies in den Subdirectories "backend" und "frontend" jeweils mit dem Befehl `npm install`
-
-3. Builden des Backend Images im directory "backend"
+2. Builden des Backend Images im directory "backend"
    
    ```bash
    docker build -t lukasbenner/web_engineering_3277496-backend:1.0 .
    ```
 
-4. Builden des Frontend Images im directory "frontend"
+3. Builden des Frontend Images im directory "frontend"
    
    ```bash
    docker build -t lukasbenner/web_engineering_3277496-frontend:1.0 .
    ```
 
-5. Ausführen der "docker-compose.yaml"
+4. Ausführen der "docker-compose.yaml"
    
    Das Working Directory muss das Directory mit der compose Datei sein.
    
@@ -131,7 +127,7 @@ Infos zur Installation sind hier zu finden: [Install Docker Desktop on Mac | Doc
    docker compose up -d
    ```
 
-6. Rausfinden der Adresse unter der die App läuft:
+5. Rausfinden der Adresse unter der die App läuft:
    
    ```bash
    docker logs frontend

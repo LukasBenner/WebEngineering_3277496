@@ -4,10 +4,10 @@
   <element>
     <id>UMLObject</id>
     <coordinates>
-      <x>936</x>
-      <y>279</y>
+      <x>1341</x>
+      <y>387</y>
       <w>639</w>
-      <h>828</h>
+      <h>549</h>
     </coordinates>
     <panel_attributes>Node.js Backend
 valign=top</panel_attributes>
@@ -16,10 +16,10 @@ valign=top</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>81</x>
-      <y>396</y>
-      <w>90</w>
-      <h>36</h>
+      <x>468</x>
+      <y>495</y>
+      <w>108</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>aurfuf von 
 localhost: 3000</panel_attributes>
@@ -28,8 +28,8 @@ localhost: 3000</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>279</x>
-      <y>378</y>
+      <x>684</x>
+      <y>486</y>
       <w>117</w>
       <h>72</h>
     </coordinates>
@@ -40,8 +40,8 @@ welcherPfad</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>162</x>
-      <y>396</y>
+      <x>567</x>
+      <y>504</y>
       <w>135</w>
       <h>36</h>
     </coordinates>
@@ -52,41 +52,44 @@ URL</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>495</x>
-      <y>396</y>
-      <w>90</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>home</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>495</x>
-      <y>450</y>
-      <w>90</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>blogs</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>495</x>
+      <x>900</x>
       <y>504</y>
       <w>90</w>
       <h>36</h>
     </coordinates>
-    <panel_attributes>login</panel_attributes>
+    <panel_attributes>redirect
+home</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>477</x>
+      <y>558</y>
+      <w>90</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>redirect
+blogs</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>900</x>
+      <y>612</y>
+      <w>90</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>redirect
+login</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>396</y>
+      <x>792</x>
+      <y>504</y>
       <w>117</w>
       <h>36</h>
     </coordinates>
@@ -97,57 +100,58 @@ URL</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>405</y>
-      <w>126</w>
+      <x>558</x>
+      <y>513</y>
+      <w>261</w>
       <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-blogs</panel_attributes>
-    <additional_attributes>120.0;70.0;10.0;70.0;10.0;10.0</additional_attributes>
+/blogs</panel_attributes>
+    <additional_attributes>10.0;70.0;270.0;70.0;270.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>459</y>
+      <x>792</x>
+      <y>567</y>
       <w>126</w>
       <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-login</panel_attributes>
+/login</panel_attributes>
     <additional_attributes>120.0;70.0;10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>495</x>
-      <y>558</y>
+      <x>603</x>
+      <y>612</y>
       <w>90</w>
       <h>36</h>
     </coordinates>
-    <panel_attributes>signUp</panel_attributes>
+    <panel_attributes>redirect
+signUp</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>513</y>
-      <w>126</w>
+      <x>684</x>
+      <y>567</y>
+      <w>135</w>
       <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-signUp</panel_attributes>
-    <additional_attributes>120.0;70.0;10.0;70.0;10.0;10.0</additional_attributes>
+/signUp</panel_attributes>
+    <additional_attributes>10.0;70.0;130.0;70.0;130.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLObject</id>
     <coordinates>
-      <x>0</x>
-      <y>279</y>
+      <x>405</x>
+      <y>387</y>
       <w>936</w>
-      <h>828</h>
+      <h>549</h>
     </coordinates>
     <panel_attributes>Nuxt Frontend
 valign=top</panel_attributes>
@@ -156,8 +160,8 @@ valign=top</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>792</x>
-      <y>324</y>
+      <x>1197</x>
+      <y>432</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -167,8 +171,8 @@ valign=top</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>324</x>
-      <y>324</y>
+      <x>729</x>
+      <y>432</y>
       <w>333</w>
       <h>72</h>
     </coordinates>
@@ -179,8 +183,8 @@ weather</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>639</x>
-      <y>306</y>
+      <x>1044</x>
+      <y>414</y>
       <w>90</w>
       <h>72</h>
     </coordinates>
@@ -192,8 +196,8 @@ gesetzt?</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>324</y>
+      <x>1125</x>
+      <y>432</y>
       <w>90</w>
       <h>36</h>
     </coordinates>
@@ -204,8 +208,8 @@ ja</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>369</y>
+      <x>981</x>
+      <y>477</y>
       <w>144</w>
       <h>162</h>
     </coordinates>
@@ -216,13 +220,311 @@ nein</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1008</x>
-      <y>324</y>
+      <x>1557</x>
+      <y>432</y>
+      <w>225</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>/weather
+Abfrage der Wetterdaten</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1278</x>
+      <y>441</y>
+      <w>297</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>310.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1773</x>
+      <y>450</y>
+      <w>288</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>2043</x>
+      <y>432</y>
+      <w>378</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>OpenWeatherMap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1773</x>
+      <y>441</y>
+      <w>288</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1278</x>
+      <y>450</y>
+      <w>297</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>310.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>1575</x>
+      <y>612</y>
       <w>225</w>
       <h>54</h>
     </coordinates>
-    <panel_attributes>weather
-Abfrage der Wetterdaten</panel_attributes>
+    <panel_attributes>/user
+Überprüfen der Credentials</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>693</x>
+      <y>711</y>
+      <w>225</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Eingabe email und password
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>639</x>
+      <y>639</y>
+      <w>117</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>110.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>846</x>
+      <y>639</y>
+      <w>108</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>909</x>
+      <y>621</y>
+      <w>684</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>740.0;10.0;360.0;10.0;360.0;120.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>1710</x>
+      <y>693</y>
+      <w>90</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>type=decision
+Daten 
+richtig?</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1746</x>
+      <y>657</y>
+      <w>27</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1602</x>
+      <y>756</y>
+      <w>171</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+ja</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;40.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>693</x>
+      <y>774</y>
+      <w>225</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>redirect
+home</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>468</x>
+      <y>711</y>
+      <w>108</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Nuxt Content
+Module</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>585</y>
+      <w>81</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+load blogs
+</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>1386</x>
+      <y>774</y>
+      <w>225</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>generate JWT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1197</x>
+      <y>774</y>
+      <w>207</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+JWT</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>981</x>
+      <y>774</y>
+      <w>225</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Set JWT as Cookie</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>909</x>
+      <y>783</y>
+      <w>90</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+/</panel_attributes>
+    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>2061</x>
+      <y>621</y>
+      <w>108</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>MongoDB</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1791</x>
+      <y>630</y>
+      <w>288</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1791</x>
+      <y>639</y>
+      <w>288</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>981</x>
+      <y>630</y>
+      <w>747</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=nein</panel_attributes>
+    <additional_attributes>10.0;10.0;550.0;10.0;550.0;110.0;810.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>360</x>
+      <y>513</y>
+      <w>18</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>513</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
