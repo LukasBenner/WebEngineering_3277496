@@ -9,9 +9,11 @@ const cors = require('cors');
 
 dotenv.config();
 
+const host = process.env.DATABASE ? process.env.DATABASE : 'localhost';
+
 try {
   mongoose.connect(
-    `mongodb://${process.env.DATABASE}:27017/homepage`,
+    `mongodb://${host}:27017/homepage`,
     () => console.log('connected to db!')
   )
 } catch (error) {

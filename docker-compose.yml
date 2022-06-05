@@ -17,8 +17,6 @@ services:
     container_name: backend
     environment:
       - DATABASE=mongodb
-    ports:
-      - "8000:8000"
     networks:
       - backend
       - frontend
