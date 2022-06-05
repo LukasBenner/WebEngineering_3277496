@@ -4,15 +4,15 @@ Matrikelnummer: 3277496
 
 ## Welche Elemente wurden implementiert?
 
-1. **Vue.js** wurde in Form von Nuxt.js verwendet.
+1. **Vue.js** wurde in Form von Nuxt.js verwendet. (3 Pkt.)
 
-2. **Wetter Daten** können angezeigt werden
+2. **Wetter Daten** können angezeigt werden (1 Pkt.)
 
-3. Es wurde ein **Nutzersystem** zum Login implementiert
+3. Es wurde ein **Nutzersystem** zum Login implementiert (3 Pkt.)
    
    1. Hierfür wurde ein **Backend** mit Node.js implementiert, dass zu Speicherung der Daten eine **MongoDB** Datenbank nutzt.
 
-4. Die Komponenten kann über **Docker** insalliert werden.
+4. Die Komponenten kann über **Docker** insalliert werden. (1 Pkt.)
 
 ## Installationsbeschreibung für lokales Environment
 
