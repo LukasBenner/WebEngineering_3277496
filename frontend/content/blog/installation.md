@@ -8,7 +8,7 @@ slug: installation
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/LukasBenner/homepage.git
+   git clone https://github.com/LukasBenner/WebEngineering_3277496.git
    ```
 2. Go into the backend and frontend directory and install the dependencies
    ```bash

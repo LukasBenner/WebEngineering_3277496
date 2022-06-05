@@ -1,7 +1,7 @@
 services:
 
   frontend:
-    image: lukasbenner/homepage-frontend:0.1
+    image: lukasbenner/web_engineering_3277496-frontend:1.0
     container_name: frontend
     environment:
       - DEPLOY_ENV=production
@@ -13,7 +13,7 @@ services:
       - frontend
 
   backend:
-    image: lukasbenner/homepage-backend:0.1
+    image: lukasbenner/web_engineering_3277496-backend:1.0
     container_name: backend
     environment:
       - DATABASE=mongodb

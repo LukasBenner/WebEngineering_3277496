@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <h1>Latest Posts</h1>
-    <div class="articles">
+    <div class="recentPosts">
       <v-card
         v-for="article of articles"
         :key="article.title"
@@ -46,10 +46,12 @@ export default {
     margin-bottom: 30px;
     text-align: center;
   }
-  .articles {
+  .recentPosts {
     margin: 0 auto;
     max-width: 800px;
     width: min(600px, 100%);
+    overflow-y: hidden;
+    padding: 1rem;
   }
   .article {
     margin-bottom: 15px;
