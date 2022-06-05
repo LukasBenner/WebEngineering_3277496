@@ -36,6 +36,7 @@ export default {
           timeout: 2000,
         })
       } catch (error) {
+        //something went wrong logging in
         if (error.response.data.error === 'email') {
           this.$store.dispatch('snackbar/setSnackbar', {
             color: 'red',

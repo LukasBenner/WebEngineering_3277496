@@ -56,13 +56,19 @@ Hier in kurz:
 3. Starte MongoDB
    
    ```bash
-   brew services start mongodb-community@5.0
+   brew services start mongodb-community@5.0`
    ```
 
 Um MongoDB wieder zu stoppen, führe folgends aus:
 
 ```bash
 brew services stop mongodb-community@5.0
+```
+
+Um MongoDB zu deinstalliern:
+
+```bash
+brew remove mongodb-community@5.0
 ```
 
 ### Starten der Anwendung
